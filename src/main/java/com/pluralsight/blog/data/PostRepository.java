@@ -2,6 +2,7 @@ package com.pluralsight.blog.data;
 
 import com.pluralsight.blog.model.Post;
 import org.springframework.stereotype.Component;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,6 +16,11 @@ public class PostRepository {
     }
 
     public Post findById(Long id) {
+        for (Post item : ALL_POSTS) {
+            if (item.getId().equals(id)) {
+                return item;
+            }
+        }
         return null;
     }
 
@@ -23,10 +29,12 @@ public class PostRepository {
                      "You have got to try these in your ears. So tiny and can even block the sounds of screaming toddlers if you so desire.",
                      "You have got to try these in your ears. So tiny and can even block the sounds of screaming toddlers if you so desire.",
                      "Sarah Holderness", new Date()),
-            new Post(2l, "Smart Speakers",
+            new Post(2l,
+                     "Smart Speakers",
                      "Smart speakers listen to you all right.  Sometimes they get a little snippy but will still order your favorite takeout.",
                      "Smart speakers listen to you all right.  Sometimes they get a little snippy but will still order your favorite takeout.",
-                     "Sarah Holderness", new Date()),
+                     "Sarah Holderness",
+                     new Date()),
             new Post(3l, "Device Charger",
                      "We all do a little too much scrolling in lieu of human interaction. This charger will keep you isolated.",
                      "We all do a little too much scrolling in lieu of human interaction. This charger will keep you isolated.",
@@ -43,10 +51,12 @@ public class PostRepository {
                      "Best gift for that older adult in your life who cannot keep their face in the FaceTime window.",
                      "Best gift for that older adult in your life who cannot keep their face in the FaceTime window.",
                      "Sarah Holderness", new Date()),
-            new Post(7l, "Travel Keyboard",
+            new Post(7l,
+                     "Travel Keyboard",
                      "You never know when inspiration for your latest novel will strike. Meet the perfect travel keyboard for your random thoughts.",
                      "You never know when inspiration for your latest novel will strike. Meet the perfect travel keyboard for your random thoughts.",
-                     "Sarah Holderness", new Date()),
+                     "Sarah Holderness",
+                     new Date()),
             new Post(8l, "SD Card Reader",
                      "When a stranger passes us a top secret SD card the adventure begins.  Jason Bourne says, \"Hi\".",
                      "When a stranger passes us a top secret SD card the adventure begins.  Jason Bourne says, \"Hi\".",
